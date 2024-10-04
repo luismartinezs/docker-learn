@@ -3,16 +3,11 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
   plugins: [vue()],
-  preview: {
-    port: 8080,
-    strictPort: true,
-  },
+  // below needed to serve app from docker
   server: {
-    port: 8080,
+    port: 5173,
     strictPort: true,
     host: true,
-    origin: "http://0.0.0.0:8080",
   },
 })
