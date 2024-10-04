@@ -14,3 +14,5 @@
     - in volumes sync local dir with app in container to see real time changes
 - docker-compose up --build to build docker image
 - docker-compose up to run app
+
+## basic node app within subfolder
