@@ -22,10 +22,6 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# Build output
-dist
-dist-ssr
-
 # Local env files
 .env
 .env.*
