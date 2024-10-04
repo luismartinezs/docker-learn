@@ -116,8 +116,10 @@ If you want to clean up everything that's not being used:
 
 ```bash
 docker system prune -a
+docker system prune -a --volumes
 ```
 - **`-a`**: Removes all unused images, not just dangling ones.
+- **`--volumes`**: Removes all unused volumes.
 
 ### **16. Check Container/Process Details**
 See detailed information about a running container, including resource usage, configuration, and networking.

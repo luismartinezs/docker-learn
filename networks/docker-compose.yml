@@ -1,0 +1,48 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+    ports:
+      - "3001:3001"
+    networks:
+      - frontend
+      - backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - frontend
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    networks:
+      - backend
+
+volumes:
+  dbdata:
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
