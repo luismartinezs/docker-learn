@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend</title>
+  </head>
+  <body>
+    <h1>Hello from the frontend!</h1>
+    <div id="message"></div>
+    <script>
+      const messageElement = document.getElementById('message');
+
+      fetch("http://localhost:3001/api")
+        .then((response) => {
+          console.log("Response status:", response.status);
+          console.log("Response headers:", response.headers);
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Received data:", data);
+          messageElement.textContent = data.message;
+        })
+        .catch((error) => {
+          console.error("Fetch error:", error);
+          messageElement.textContent = `Error: ${error.message}`;
+        });
+    </script>
+  </body>
+</html>
