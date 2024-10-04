@@ -3,29 +3,31 @@ services:
     build: ./backend
     ports:
       - "3001:3001"
-    networks:
-      - app-network
+    # networks:
+    #   - app-network
 
-  vue-app:
-    build: ./path-to-vue-app
+  frontend:
+    build: ./frontend
     ports:
-      - "8080:80" # Map port 8080 on host to port 80 in the container
-    networks:
-      - app-network
+      - "8080:5173" # Map port 8080 on host to port 80 in the container
+    depends_on:
+      - backend
+    # networks:
+    #   - app-network
 
-  db:
-    image: postgres:14
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=pass
-      - POSTGRES_DB=mydb
-    volumes:
-      - dbdata:/var/lib/postgresql/data
-    networks:
-      - app-network
+#   db:
+#     image: postgres:14
+#     environment:
+#       - POSTGRES_USER=user
+#       - POSTGRES_PASSWORD=pass
+#       - POSTGRES_DB=mydb
+#     volumes:
+#       - dbdata:/var/lib/postgresql/data
+#     networks:
+#       - app-network
 
-volumes:
-  dbdata:
+# volumes:
+#   dbdata:
 
-networks:
-  app-network:
+# networks:
+#   app-network:

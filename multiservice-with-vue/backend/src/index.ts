@@ -6,8 +6,8 @@ const port = 3001;
 
 // front to back communication fails if we don't setup cors
 app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET']
+  origin: ['http://localhost:5173', 'http://localhost:8080', 'http://frontend:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 app.use((req, res, next) => {
