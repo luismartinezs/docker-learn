@@ -1,0 +1,25 @@
+{
+  "phpcs.enable": false,
+  "phpcs.standard": "PSR12",
+  "phpcs.executablePath": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
+  "editor.formatOnSave": false,
+  "php.format.codeStyle": "PSR-12",
+  "php.validate.run": "onSave",
+  "[php]": {
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+  },
+  "editor.formatOnSaveMode": "modifications",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.watcherExclude": {
+    "tmp/**": true,
+    "output/**": true,
+    "**/node_modules/*": true,
+    "**/vendor/*": true,
+    "**/dist/*": true,
+    "**/.git/*": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  }
+}
