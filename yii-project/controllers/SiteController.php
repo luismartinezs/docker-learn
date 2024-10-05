@@ -161,4 +161,9 @@ class SiteController extends Controller
     {
         return $this->render('vue-app');
     }
+
+    public function actionViteApp()
+    {
+        return $this->render('vite-app');
+    }
 }

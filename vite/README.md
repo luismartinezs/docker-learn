@@ -1,0 +1,12 @@
+- vite build
+  - ./index.html as default entry points
+  - can specific base path in config
+- vite build --watch = rebuild on file change
+- integration of vite with backends: https://github.com/vitejs/awesome-vite#integrations-with-backends
+  - prebuilt examples
+    - https://github.com/innocenzi/laravel-vite
+    - https://github.com/lhapaipai/vite-bundle
+    - https://github.com/szymmis/vite-express
+    - https://github.com/nititech/php-vite-starter
+    - https://github.com/mindplay-dk/php-vite
+- steps to integrate with backend
