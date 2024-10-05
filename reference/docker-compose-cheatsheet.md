@@ -235,3 +235,22 @@ volumes:
 networks:
   app-network:
 ```
+
+### Notes
+
+- `volumes` serves multiple purposes:
+  - **Persist Data**: allows you to persist data between container restarts, ensuring that any data generated or modified within the container is not lost when the container is stopped. Crucial for DB
+  - **Host-Container File Sharing**: map directories or files from your host machine into the container. useful for development environments
+  - **Container-Container File Sharing**: data sharing between multiple containers by mounting the same volume in each container
+
+```yaml
+# db-data volume persists PostgreSQL data, so if the container restarts, the data remains
+services:
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+```

@@ -10,12 +10,16 @@ if (file_exists($manifestPath)) {
 $entry = reset($manifest);
 ?>
 
+<div>Hello from Yii Vite App Page</div>
 <div id="vue-app"></div>
-<!-- if development -->
 <?php if (YII_ENV_DEV && !$USE_BUILD): ?>
+  <!-- if development -->
+   <!-- this needs the vite dev server running, i.e. (cd app && bun run dev) -->
   <script type="module" src="http://localhost:3000/@vite/client"></script>
   <script type="module" src="http://localhost:3000/src/main.ts"></script>
 <?php else: ?>
+  <!-- if production -->
+   <!-- this requires running the build command, i.e. (cd app && bun run build) -->
   <!-- CSS for the entry point -->
   <?php if (isset($entry['css'])): ?>
     <?php foreach ($entry['css'] as $cssFile): ?>

@@ -5,4 +5,23 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./:/app:delegated
     ports:
-      - '8000:80'
+      - '8000:80' # likely env var
+    # networks:
+    #   - app-network
+
+  vite-dev:
+    build:
+      context: ./apps
+    volumes:
+      - ./apps:/app:delegated
+      - ./apps/node_modules:/app/node_modules:delegated
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+#     networks:
+#       - app-network
+
+# networks:
+#   app-network:
+#     driver: bridge

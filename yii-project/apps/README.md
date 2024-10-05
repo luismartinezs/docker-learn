@@ -1,5 +1,14 @@
-# Vue 3 + TypeScript + Vite
+Vite + Vue app integrated with Yii
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Dev
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+- Get started: `bun install`
+- Run dev server: `bun run dev`
+- Build: `bun run build`
+
+# Docker
+
+- Dev: share host src folder and node_modules with container
+- Build
+  - build step: install dependencies and build app
+  - run step: expose build to Yii container
