@@ -7,6 +7,7 @@ $this->registerJsFile('@web/js/vue-widget.js', ['position' => \yii\web\View::POS
 
 <div>
   <p>This is a Vue app embedded in a Yii project</p>
+  <p>Hello from Yii</p>
   <div id="vue-widget">
      {{message}}
   </div>
