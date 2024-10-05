@@ -12,9 +12,10 @@ Docker full cleanup: `docker-compose down && docker system prune -a --volumes -f
 
 - [x] added vue widget
 - [x] run docker (already setup out of the box including hot reload)
+- [x] vite app server working
+- [x] vite app build working
 - [ ] run dockerized vue widget
 
 where to put vite app?
 
-https://stackoverflow.com/questions/74097828/how-to-integrate-vue3-via-webpack-or-mix-or-vite-to-yii2-advanced-correctly
-
+- i created a app folder and put it in there
