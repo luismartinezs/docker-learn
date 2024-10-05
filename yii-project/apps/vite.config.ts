@@ -12,8 +12,8 @@ export default defineConfig({
     modulePreload: {
       polyfill: false,
     },
-    // outDir: '../web/js/vite-widget',
-    // emptyOutDir: true,
+    outDir: '../web/js/vite-widget',
+    emptyOutDir: true,
   },
   server: {
     port: 3000,
