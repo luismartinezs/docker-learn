@@ -31,6 +31,24 @@ Here’s a concise Docker cheatsheet for quick reference:
 - **Remove all unused images**:
   `docker image prune`
 
+- **Remove all unused volumes**:
+  `docker volume prune`
+
+- **Remove all unused Docker resources**:
+  `docker system prune`
+
+- **Remove all unused Docker resources including volumes**:
+  `docker system prune --volumes`
+
+- **List dangling volumes**:
+  `docker volume ls -f dangling=true`
+
+- **Remove all unused Docker resources (including non-dangling images)**:
+  `docker system prune -a`
+
+- **Remove all unused Docker resources (including non-dangling images and volumes)**:
+  `docker system prune -a --volumes`
+
 ### **Building & Managing Images**
 - **Build an image**:
   `docker build -t TAG .`
