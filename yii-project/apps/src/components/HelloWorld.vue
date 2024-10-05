@@ -15,5 +15,6 @@ const count = ref(0)
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
+    <img src="../assets/vue.svg" alt="Vue Logo" />
   </div>
 </template>
