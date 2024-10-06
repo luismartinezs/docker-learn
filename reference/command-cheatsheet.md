@@ -123,3 +123,8 @@ docker-compose up -d # restart container without rebuilding
 docker-compose run backend sh # execute a command in a container
 docker-compose build backend # modified backend Dockerfile and need to rebuild image
 ```
+
+### run vs exec
+
+`docker-compose run`: creates a new container based on the service defined in the docker-compose.yml. It doesn’t need the service to be already running. new container will have its own lifecycle and won't affect existing ones. Use cases: migrations, tests
+`docker-compose exec`: Executes a command inside an already running container. interact with or run a command in a container that is already running. Service must already be running with `docker-compose up`. Use cases: debugging, interacting with app
