@@ -10,6 +10,24 @@ FROM ubuntu:20.04
 FROM alpine:latest
 ```
 
+What base image to pick?
+
+- the one that matches your node version
+- alpine (lightweight),e .g. `FROM node:18-alpine`
+  - compiling native modules might be slower and more complex
+- Use LTS unless there is a good reason not to
+- slim: stripped down version of node image. Smaller than full node, larger than alpine, `FROM node:18-slim`
+  - balance between image size and ease of use
+- full: full version of node image, `FROM node:18`
+  - easy to use, but larger image size, might be useful for dev environments
+- Multistage builds
+  - Use heavier image for bilding the app
+  - User lighter image for running app on production
+- Envs
+  - dev: full or slim (debug, install deps, local dev)
+  - prod: alpine or slim
+- CPU arch is factor too
+
 - **Common bases**: `alpine`, `ubuntu`, `debian`, `node`, etc.
 
 #### 2. **WORKDIR**
