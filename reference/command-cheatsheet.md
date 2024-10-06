@@ -98,4 +98,28 @@ Here’s a concise Docker cheatsheet for quick reference:
 - **Rebuild services**:
   `docker-compose up --build`
 
-This covers the essentials you’d need for most Docker operations.
+
+### docker-compose run VS up VS build
+
+`docker-compose up`: Start or restart services. builds the images if they don't exist, but it doesn't rebuild them unless explicitly told to
+  `docker-compose up`: Starts the services in the foreground, so you can see logs.
+  `docker-compose up -d`: Starts the services in the background.
+  `docker-compose up --build`: Rebuilds the images before starting the services. only needed if you've made changes to the Dockerfile
+`docker-compose run`: Run a one-off command in a container. to run a specific command inside a container, such as running tests or database migrations, without starting the full service. It doesn’t start dependent services unless explicitly mentioned. when you want to interact with a specific container in an isolated context
+  `docker-compose run service_name <command>`:
+    `docker-compose run backend sh` run shell inside service
+    `docker-compose run backend npm run migration` one off command
+`docker-compose build`: Build or rebuild images for the services defined in docker-compose.yml. When you modify the Dockerfile, package.json, or any files in your build context. only builds images but doesn’t start any containers
+
+- you want to bring whole stack up: `docker-compose up`
+- you made changes to the Dockerfile: `docker-compose build` or `docker-compose up --build`
+- you want to run a command in a container without starting up entire stack: `docker-compose run service_name <command>`
+
+Example workflow:
+
+```bash
+docker-compose up --build -d # build new image after modifying Dockerfile
+docker-compose up -d # restart container without rebuilding
+docker-compose run backend sh # execute a command in a container
+docker-compose build backend # modified backend Dockerfile and need to rebuild image
+```
